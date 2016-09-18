@@ -1,6 +1,8 @@
 ---
 ID: 45
-post_title: Create a correct 201 Created response
+post_title: >
+  Create a correct 201 Created response
+  with JAX_RS
 author: alacambra
 post_date: 2016-09-18 16:57:41
 post_excerpt: ""
