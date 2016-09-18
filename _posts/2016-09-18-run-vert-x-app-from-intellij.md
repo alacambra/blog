@@ -11,8 +11,8 @@ published: true
 ---
 To run Vert.x on intelliJ, it is only required to create a standard application Launcher with the following parameters:
 <ul>
- 	<li>Main class: the vert.x main class, i.e. io.vertx.core.Starter or whatever it is for your version.</li>
- 	<li>VM options: whatever you need or empty</li>
- 	<li>Program arguments: run de.lacambra.vertx.MyFirstVerticle</li>
- 	<li>Working directory: normally your project directory</li>
+ 	<li><strong>Main class</strong>: the vert.x main class, i.e. io.vertx.core.Starter or whatever it is for your version.</li>
+ 	<li><strong>VM options</strong>: whatever you need or empty</li>
+ 	<li><strong>Program arguments</strong>: run de.lacambra.vertx.MyFirstVerticle</li>
+ 	<li><strong>Working directory</strong>: normally your project directory</li>
 </ul>
