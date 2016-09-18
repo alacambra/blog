@@ -18,7 +18,7 @@ Each collector has three parts:
  	<li><strong>A combiner</strong>: combines all the accumulator putting all collected objects together.</li>
 </ul>
 For the JsonArray the combiner, accumulator  and combiener are respectively:
-<pre>public static JsonArrayBuilder createArrayBuilder()
+<pre>JsonArrayBuilder createArrayBuilder()
 JsonArrayBuilder add(JsonValue value)
 JsonArrayBuilder add(JsonArrayBuilder builder)</pre>
 
