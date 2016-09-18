@@ -13,7 +13,6 @@ published: true
 [java]
 @POST
 @Path(&quot;project&quot;)
-@AllowedTo({Role.MEMBER, Role.OWNER})
 public Response createProject(@Context UriInfo uriInfo, JsonObject json) {
         Project project = projectConverter.fromJson(json);
         project.setWorkspace(getCurrentWorkspace());
@@ -27,3 +26,8 @@ public Response createProject(@Context UriInfo uriInfo, JsonObject json) {
 
         return Response.created(uri).build();
 [/java]
+
+<pre>The <em><strong>@Context UriInfo uriInfo </strong></em>provides information about the current URI. The <em><strong></strong></em></pre>
+<pre><em><strong>.path(ProjectResource.class) </strong></em> call will return the path used for the ProjectResource.class. The</pre>
+<pre><em><strong>.resolveTemplate("<span class="pl-s">{workspace</span>Id:<span class="pl-cce">\\</span>d+<span class="pl-s">}"</span>, getCurrentWorkspace().getId()) </strong></em> will</pre>
+<pre>@Context UriInfo uriInfo</pre>
