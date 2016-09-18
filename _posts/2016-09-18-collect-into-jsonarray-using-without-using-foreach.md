@@ -14,21 +14,21 @@ published: true
 
 [java]
 
-public JsonArray getArray(Jsonable[] objects) {
-return Stream.of(objects).map(Jsonable::toJson)
-.collect(
-Json::createArrayBuilder,
-JsonArrayBuilder::add,
-JsonArrayBuilder::add
-).build();
+    public JsonArray getArray(Jsonable[] objects) {
+        return Stream.of(objects).map(Jsonable::toJson)
+                .collect(
+                        Json::createArrayBuilder,
+                        JsonArrayBuilder::add,
+                        JsonArrayBuilder::add
+                ).build();
 
-}
+    }
 
-public static class Jsonable {
+    public static class Jsonable {
 
-public JsonObject toJson() {
-return Json.createObjectBuilder().add(&quot;someId&quot;, LocalTime.now().toString()).build();
-}
-}
+        public JsonObject toJson() {
+            return Json.createObjectBuilder().add(&quot;someId&quot;, LocalTime.now().toString()).build();
+        }
+    }
 
 [/java]
