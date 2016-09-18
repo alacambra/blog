@@ -12,10 +12,9 @@ published: true
 
 [java]
 @POST
-    @Path(&quot;project&quot;)
-    @AllowedTo({Role.MEMBER, Role.OWNER})
-    public Response createProject(@Context UriInfo uriInfo, JsonObject json) {
-
+@Path(&quot;project&quot;)
+@AllowedTo({Role.MEMBER, Role.OWNER})
+public Response createProject(@Context UriInfo uriInfo, JsonObject json) {
         Project project = projectConverter.fromJson(json);
         project.setWorkspace(getCurrentWorkspace());
         project = em.merge(project);
