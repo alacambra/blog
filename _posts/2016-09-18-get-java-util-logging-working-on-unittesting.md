@@ -13,6 +13,7 @@ published: true
 ---
 If you need to active the java.util.logging on your test, you can achieve it just adding the vm option
 <code>-Djava.util.logging.config.file=/path/to/logging.properties</code>
+
 where logging.properties can be something like
 
 <code>handlers = java.util.logging.ConsoleHandler
