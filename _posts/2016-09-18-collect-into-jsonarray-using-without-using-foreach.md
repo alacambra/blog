@@ -11,6 +11,12 @@ permalink: >
   http://chronicles.lacambra.de/wordpress/2016/09/18/collect-into-jsonarray-using-without-using-foreach/
 published: true
 ---
+Each collector has three parts:
+<ul>
+ 	<li>A supplier: provides with instances of the accumulator.</li>
+ 	<li>An accumulator: accumulates the objects being collected. Several instances of accumulator can be used.</li>
+ 	<li>A combiner: combines all the accumulator putting all collected objects together.</li>
+</ul>
 
 [java]
 
