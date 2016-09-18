@@ -1,8 +1,8 @@
 ---
 ID: 35
 post_title: >
-  Collect into JsonArray using without
-  using foreach
+  Collect into Jsonp JsonArray using
+  without using foreach
 author: alacambra
 post_date: 2016-09-18 15:27:04
 post_excerpt: ""
@@ -13,10 +13,14 @@ published: true
 ---
 Each collector has three parts:
 <ul>
- 	<li>A supplier: provides with instances of the accumulator.</li>
- 	<li>An accumulator: accumulates the objects being collected. Several instances of accumulator can be used.</li>
- 	<li>A combiner: combines all the accumulator putting all collected objects together.</li>
+ 	<li><strong>A supplier</strong>: provides with instances of the accumulator.</li>
+ 	<li><strong>An accumulator</strong>: accumulates the objects being collected. Several instances of accumulator can be used.</li>
+ 	<li><strong>A combiner</strong>: combines all the accumulator putting all collected objects together.</li>
 </ul>
+For the JsonArray the combiner, accumulator  and combiener are respectively:
+<pre>public static JsonArrayBuilder createArrayBuilder()
+JsonArrayBuilder add(JsonValue value)
+JsonArrayBuilder add(JsonArrayBuilder builder)</pre>
 
 [java]
 
