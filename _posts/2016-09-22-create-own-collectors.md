@@ -11,45 +11,67 @@ published: true
 ---
 Sometimes it is useful to be able perform several actions extracting several actions with a stream pass. It can be achieved building our own collector. For example, suppose we need to get the maximal and minimal values of a series. So can we achieve it using collectors.
 
-[java]
-package de.lacambra.utils.collectors;
+[java]&lt;/pre&gt;
+&lt;pre&gt;public class MaxMinCollector2 implements Collector&lt;Integer, MaxMinContainer, MaxMinContainer&gt;{
 
-import java.util.Optional;
+    public void accumulate(MaxMinContainer container, Integer val){
 
-public class MaxMinCollector{
+        if(container.max == null){
+            container.max = val;
+        }else if(container.max &lt; val){
+            container.max = val;
+        }
 
-    Integer max;
-    Integer min;
-
-    public void accumulate(Integer val){
-
-        if(max == null){
-            max = val;
-        }else if(max &lt; val){ max = val; } if(min == null){ min = val; }else if(min &gt; val){
-            min = val;
+        if(container.min == null){
+            container.min = val;
+        }else if(container.min &gt; val){
+            container.min = val;
         }
 
     }
 
-    public void combine(MaxMinCollector other){
-        if(max == null){
-            other.getMax().ifPresent(v -&gt; max = v);
+    public MaxMinContainer combine(MaxMinContainer a, MaxMinContainer b){
+        if(a.max == null){
+            b.getMax().ifPresent(v -&gt; a.max = v);
         }else {
-            other.getMax().ifPresent(v -&gt; max = max &lt; v ? v : max); } if(min == null){ other.getMin().ifPresent(v -&gt; min = v);
-        }else {
-            other.getMax().ifPresent(v -&gt; min = min &gt; v ? v : min);
+            b.getMax().ifPresent(v -&gt; a.max = a.max &lt; v ? v : a.max);
         }
+
+        if(a.min == null){
+            b.getMin().ifPresent(v -&gt; a.min = v);
+        }else {
+            b.getMax().ifPresent(v -&gt; a.min = a.min &gt; v ? v : a.min);
+        }
+
+        return a;
     }
 
-    public Optional&lt;Integer&gt; getMax() {
-        return Optional.ofNullable(max);
+    @Override
+    public Supplier&lt;MaxMinContainer&gt; supplier() {
+        return MaxMinContainer::new;
     }
 
-    public Optional&lt;Integer&gt; getMin() {
-        return Optional.ofNullable(min);
+    @Override
+    public BiConsumer&lt;MaxMinContainer, Integer&gt; accumulator() {
+        return this::accumulate;
     }
-}
-[/java]
+
+    @Override
+    public BinaryOperator&lt;MaxMinContainer&gt; combiner() {
+        return this::combine;
+    }
+
+    @Override
+    public Function&lt;MaxMinContainer, MaxMinContainer&gt; finisher() {
+        return (a) -&gt; a;
+    }
+
+    @Override
+    public Set&lt;Characteristics&gt; characteristics() {
+        return new HashSet&lt;&gt;(Arrays.asList(Characteristics.IDENTITY_FINISH, Characteristics.UNORDERED));
+    }
+}&lt;/pre&gt;
+&lt;pre&gt;[/java]
 
 and its corresponding test:
 
