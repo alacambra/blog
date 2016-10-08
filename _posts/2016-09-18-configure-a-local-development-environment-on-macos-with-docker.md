@@ -36,10 +36,25 @@ address=/dev/<span class="hljs-number">127.0</span>.<span class="hljs-number">0.
 <span class="hljs-comment">#Redirect *.dock urls to docker host url (192.168.99.100 in my case)</span>
 address=/dock/<span class="hljs-number">192.168</span>.<span class="hljs-number">99.100</span>
 </code></pre>
-<strong>(no funciona)</strong> and restart dnsmasq:
+and restart dnsmasq:
 <pre><code class="language-bash">sudo launchctl stop homebrew.mxcl.dnsmasq
 sudo launchctl start homebrew.mxcl.dnsmasq
 </code></pre>
+Then you need to say the OS to use Dnsmasq for the desired domain. Most UNIX-like operating systems have a configuration file called <code>/etc/resolv.conf</code> which controls the way DNS queries are performed, including the default server to use for DNS queries (this is the setting that gets set automatically when you connect to a network or change your DNS server/s in System Preferences).
+
+OS X also allows you to configure additional <em>resolvers</em> by creating configuration files in the<code>/etc/resolver/</code> directory. This directory probably won’t exist on your system, so your first step should be to create it:
+<div class="sourceCode">
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> mkdir -p /etc/resolver</code></pre>
+</div>
+Now you should create a new file in this directory for each resolver you want to configure.  There a number of details you can configure for each resolver but I generally only bother with two:
+<ul>
+ 	<li>the <em>name</em> of the resolver (which corresponds to the <em>domain name</em> to be resolved); and</li>
+ 	<li>the DNS server to be used.</li>
+</ul>
+Create a new file with <em>the same name</em> as your new top-level domain (I’m using dec and dock) in the <code>/etc/resolver/</code> directory and add a <code>nameserver</code> to it by running the following commands:
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> tee /etc/resolver/dev <span class="kw">&gt;</span>/dev/null &lt;&lt;EOF
+nameserver 127.0.0.1
+EOF</code></pre>
 <h4><a id="Binding_all_services_34"></a>Binding all services</h4>
 I am developing an application that needs several resources:
 <ul>
