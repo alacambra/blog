@@ -20,5 +20,7 @@ To pass for example a param "-a" with value "192.168.99.100:7051" to the static 
     }
 }</pre>
 </li>
- 	<li>run graddle on the following form:  gradle  run  -PappArgs="['-a',  '192.168.99.100:7051']"</li>
+ 	<li>run graddle on the following form:
+<pre>gradle  run  -PappArgs="['-a',  '192.168.99.100:7051']"</pre>
+</li>
 </ul>
