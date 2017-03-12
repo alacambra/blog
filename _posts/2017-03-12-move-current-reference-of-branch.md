@@ -10,5 +10,3 @@ permalink: >
 published: true
 ---
 To force a git branch to point to a specific commit use the next command: <strong>git branch -f &lt;branch-name&gt; &lt;commit-hash&gt;</strong>
-
-<span id="ext-gen508" style="color: #cacaca; background-color: #272822;"> </span>
