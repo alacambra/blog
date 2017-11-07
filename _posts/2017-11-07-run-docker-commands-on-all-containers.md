@@ -1,6 +1,8 @@
 ---
 ID: 125
-post_title: Run docker commands on all containers
+post_title: >
+  Run docker commands on all or some
+  containers
 author: alacambra
 post_excerpt: ""
 layout: post
