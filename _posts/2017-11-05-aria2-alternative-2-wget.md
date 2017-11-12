@@ -12,6 +12,4 @@ Aria2 offers interesting options to use several conections to download a file.
 
 E.g. aria2c -x4 {utl} to use 4 connections
 
-&nbsp;
-
 More info:<a href="https://aria2.github.io/"> https://aria2.github.io/</a>
