@@ -2,17 +2,15 @@
 ID: 58
 post_title: Create own collectors
 author: alacambra
-post_date: 2016-09-22 19:09:49
 post_excerpt: ""
 layout: post
-permalink: >
-  http://chronicles.lacambra.de/wordpress/2016/09/22/create-own-collectors/
+permalink: https://blog.lacambra.de/?p=58
 published: true
+post_date: 2016-09-22 19:09:49
 ---
 Sometimes it is useful to be able perform several actions extracting several actions with a stream pass. It can be achieved building our own collector. For example, suppose we need to get the maximal and minimal values of a series. So can we achieve it using collectors.
 
-[java]&lt;/pre&gt;
-&lt;pre&gt;public class MaxMinCollector2 implements Collector&lt;Integer, MaxMinContainer, MaxMinContainer&gt;{
+[java]public class MaxMinCollector2 implements Collector&lt;Integer, MaxMinContainer, MaxMinContainer&gt;{
 
     public void accumulate(MaxMinContainer container, Integer val){
 
@@ -70,8 +68,7 @@ Sometimes it is useful to be able perform several actions extracting several act
     public Set&lt;Characteristics&gt; characteristics() {
         return new HashSet&lt;&gt;(Arrays.asList(Characteristics.IDENTITY_FINISH, Characteristics.UNORDERED));
     }
-}&lt;/pre&gt;
-&lt;pre&gt;[/java]
+}[/java]
 
 and its corresponding test:
 
