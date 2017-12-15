@@ -3,7 +3,7 @@ ID: 125
 post_title: >
   Run docker commands on all or some
   containers
-author: alacambra
+author: Albert Lacambra
 post_excerpt: ""
 layout: post
 permalink: https://blog.lacambra.de/?p=125
@@ -13,7 +13,8 @@ post_date: 2017-11-07 09:15:09
 <ul>
  	<li class="161022">Use the ps command with the q param to fetch the insance id and then apply the command:
 <ul>
- 	<li class="161022">docker {COMMAND TO RUN} $(docker ps -a -q)</li>
+ 	<li class="161022">docker {COMMAND TO RUN} $(docker ps -a -q)  -&gt; for containers</li>
+ 	<li>docker {COMMAND TO RUN} $(docker images -q) -&gt; for images</li>
 </ul>
 </li>
 </ul>
