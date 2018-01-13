@@ -13,8 +13,12 @@ post_date: 2017-11-07 09:15:09
 <ul>
  	<li class="161022">Use the ps command with the q param to fetch the insance id and then apply the command:
 <ul>
- 	<li class="161022">docker {COMMAND TO RUN} $(docker ps -a -q)  -&gt; for containers</li>
- 	<li>docker {COMMAND TO RUN} $(docker images -q) -&gt; for images</li>
+ 	<li class="161022"><strong>docker {COMMAND TO RUN} $(docker ps -a -q)  -&gt; for containers</strong></li>
+ 	<li><strong>docker {COMMAND TO RUN} $(docker images -q) -&gt; for images</strong></li>
+</ul>
+</li>
+ 	<li>Examples:
+<ul>
  	<li>Delete all stopped containers: docker rm $(docker ps -a -q)</li>
  	<li>Delete all unused images: docker rmi $(docker images -q)</li>
  	<li>Start all stopped containers: docker start $(docker ps -a -q)</li>
