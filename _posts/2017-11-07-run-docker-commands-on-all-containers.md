@@ -15,6 +15,10 @@ post_date: 2017-11-07 09:15:09
 <ul>
  	<li class="161022">docker {COMMAND TO RUN} $(docker ps -a -q)  -&gt; for containers</li>
  	<li>docker {COMMAND TO RUN} $(docker images -q) -&gt; for images</li>
+ 	<li>Delete all stopped containers: docker rm $(docker ps -a -q)</li>
+ 	<li>Delete all unused images: docker rmi $(docker images -q)</li>
+ 	<li>Start all stopped containers: docker start $(docker ps -a -q)</li>
+ 	<li>Retart all containers: docker restart $(docker ps -a -q)</li>
 </ul>
 </li>
 </ul>
