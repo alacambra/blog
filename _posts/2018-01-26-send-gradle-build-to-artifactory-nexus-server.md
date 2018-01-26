@@ -10,7 +10,6 @@ permalink: https://blog.lacambra.de/?p=158
 published: true
 post_date: 2018-01-26 08:29:44
 ---
-<code>
 apply plugin: 'maven'
 uploadArchives {
 &emsp;repositories {
@@ -24,4 +23,3 @@ uploadArchives {
 &emsp;&emsp;}
 &emsp;}
 }
-</code>
