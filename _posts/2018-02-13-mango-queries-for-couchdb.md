@@ -18,3 +18,5 @@ Match any using regex search:
 }
 }
 </code>
+
+http://docs.couchdb.org/en/2.0.0/api/database/find.html
