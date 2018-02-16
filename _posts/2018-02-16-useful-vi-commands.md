@@ -28,7 +28,7 @@ post_date: 2018-02-16 08:27:39
  	<li><strong>p</strong>: paste</li>
 </ul>
 <dl></dl>
-<center>
+&nbsp;
 <table border="">
 <tbody>
 <tr>
@@ -70,4 +70,4 @@ e.g., <tt>5dd</tt> deletes 5 lines</i></td>
 </tr>
 </tbody>
 </table>
-</center>
+&nbsp;
