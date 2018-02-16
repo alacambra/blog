@@ -27,3 +27,47 @@ post_date: 2018-02-16 08:27:39
  	<li><strong><em>N</em>yy</strong>: copy the next <em>N</em> lines</li>
  	<li><strong>p</strong>: paste</li>
 </ul>
+<dl></dl>
+<center>
+<table border="">
+<tbody>
+<tr>
+<th>*</th>
+<th align="LEFT" nowrap="nowrap"><tt>x</tt></th>
+<td><i>delete single character under cursor</i></td>
+</tr>
+<tr>
+<th></th>
+<th align="LEFT" nowrap="nowrap"><tt>Nx</tt></th>
+<td><i>delete N characters, starting with character under cursor</i></td>
+</tr>
+<tr>
+<th></th>
+<th align="LEFT" nowrap="nowrap"><tt>dw</tt></th>
+<td><i>delete the single word beginning with character under cursor</i></td>
+</tr>
+<tr>
+<th></th>
+<th align="LEFT" nowrap="nowrap"><tt>dNw</tt></th>
+<td><i>delete <tt>N</tt> words beginning with character under cursor;
+e.g., <tt>d5w</tt> deletes 5 words</i></td>
+</tr>
+<tr>
+<th></th>
+<th align="LEFT" nowrap="nowrap"><tt>D</tt></th>
+<td><i>delete the remainder of the line, starting with current cursor position</i></td>
+</tr>
+<tr>
+<th>*</th>
+<th align="LEFT" nowrap="nowrap"><tt>dd</tt></th>
+<td><i>delete entire current line</i></td>
+</tr>
+<tr>
+<th></th>
+<th align="LEFT" nowrap="nowrap"><tt>Ndd</tt> <i>or</i> <tt>dNd</tt></th>
+<td><i>delete <tt>N</tt> lines, beginning with the current line;
+e.g., <tt>5dd</tt> deletes 5 lines</i></td>
+</tr>
+</tbody>
+</table>
+</center>
