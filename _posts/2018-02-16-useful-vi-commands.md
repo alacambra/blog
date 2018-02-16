@@ -23,11 +23,7 @@ post_date: 2018-02-16 08:27:39
  	<li><strong>u</strong>: undo</li>
 </ul>
 <ul>
- 	<li style="list-style-type: none;">
-<ul>
  	<li><strong>yy</strong>: copy line</li>
  	<li><strong><em>N</em>yy</strong>: copy the next <em>N</em> lines</li>
  	<li><strong>p</strong>: paste</li>
-</ul>
-</li>
 </ul>
