@@ -27,8 +27,9 @@ post_date: 2017-11-07 09:15:09
 </li>
 </ul>
 <ul>
- 	<li>Print names of containers: docker ps | awk '{if(NR&gt;1) print $NF}'</li>
- 	<li>Reformat ps output format: docker ps --format 'table {{.Names}}\t{{.Image}}'</li>
+ 	<li>Print names of containers: <strong>docker ps | awk '{if(NR&gt;1) print $NF}' </strong>This commands avoids column name using NR&gt;1 and prints the last column. So it uses the fact that las column is the one we are interested.</li>
+ 	<li>Reformat ps output format: <strong>docker ps --format 'table {{.Names}}\t{{.Image}}' </strong>Using format modifier we directly print only desired columns separating them using a given separetor (\t on this case)</li>
+ 	<li>Print only containers names without headers using format and tail:<strong> docker ps -a --format 'table {{.Names}}' |tail -n +2 </strong>Print only column names using format modifier and avoid column names using tail command to print from to line 2</li>
 </ul>
 <ul>
  	<li class="161022">For more elavorated filters:
