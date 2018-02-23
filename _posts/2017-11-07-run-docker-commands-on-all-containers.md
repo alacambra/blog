@@ -29,8 +29,8 @@ post_date: 2017-11-07 09:15:09
 <ul>
  	<li class="161022">For more elavorated filters:
 <ul>
- 	<li class="161022">docker  {COMMAND TO RUN} $(docker ps -a |grep {TEXT-TO-CAPTURE}|awk '{ print $1 }')  wehre awk '{ print $1 }' captures the container id value.</li>
+ 	<li class="161022">docker  {COMMAND TO RUN} $(docker ps -a |grep {TEXT-TO-CAPTURE}|awk '{ print $1 }')  where awk '{ print $1 }' captures the container id value.</li>
+ 	<li class="161022">Remove all images with  "pattern" in name: docker rmi $(docker images -f="reference=*pattern*" -q)</li>
 </ul>
 </li>
 </ul>
-<div class="161022"></div>
