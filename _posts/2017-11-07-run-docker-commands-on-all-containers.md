@@ -27,6 +27,9 @@ post_date: 2017-11-07 09:15:09
 </li>
 </ul>
 <ul>
+ 	<li>Print names of containers: docker ps | awk '{if(NR&gt;1) print $NF}'</li>
+</ul>
+<ul>
  	<li class="161022">For more elavorated filters:
 <ul>
  	<li class="161022">docker  {COMMAND TO RUN} $(docker ps -a |grep {TEXT-TO-CAPTURE}|awk '{ print $1 }')  where awk '{ print $1 }' captures the container id value.</li>
