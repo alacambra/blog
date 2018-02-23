@@ -28,6 +28,7 @@ post_date: 2017-11-07 09:15:09
 </ul>
 <ul>
  	<li>Print names of containers: docker ps | awk '{if(NR&gt;1) print $NF}'</li>
+ 	<li>Reformat ps output format: docker ps --format 'table {{.Names}}\t{{.Image}}'</li>
 </ul>
 <ul>
  	<li class="161022">For more elavorated filters:
