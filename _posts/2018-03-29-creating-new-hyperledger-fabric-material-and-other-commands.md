@@ -18,4 +18,8 @@ cryptogen generate --config=./crypto-config.yaml --output="output-folder"
 
 configtxgen -profile TwoOrgsOrdererGenesis -outputBlock ./test-channel-artifacts/genesis.block
 
+<strong>Create channel configuration file:</strong>
+
+configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./test-channel-artifacts/channelTest.tx -channelID channelTest
+
 &nbsp;
