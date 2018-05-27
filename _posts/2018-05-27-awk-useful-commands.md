@@ -9,7 +9,7 @@ published: true
 post_date: 2018-05-27 16:27:39
 ---
 <ol>
- 	<li>print column <em>n</em>: <strong>awk ‘{print $<em>n</em>}’</strong></li>
+ 	<li>print column <em>n </em>using a separator <em>#</em> : <strong>awk -F<em>#</em> ‘{print $<em>n</em>}’</strong></li>
  	<li>print column 3 of lines that start with a number.: <strong>awk '/^[0-9]/ {print $3}'</strong></li>
  	<li>Variables:
 <ul>
@@ -23,3 +23,5 @@ post_date: 2018-05-27 16:27:39
 </li>
 </ol>
 More about built-in variables: <a href="https://www.thegeekstuff.com/2010/01/8-powerful-awk-built-in-variables-fs-ofs-rs-ors-nr-nf-filename-fnr/?ref=binfind.com/web">8 Powerful Awk Built-in Variables</a>
+
+Some more tricks: <a href="https://twitter.com/b0rk/status/1000604334026055681">https://twitter.com/b0rk/status/1000604334026055681</a>
