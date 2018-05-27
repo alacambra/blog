@@ -22,3 +22,4 @@ post_date: 2018-05-27 16:27:39
 </ul>
 </li>
 </ol>
+More about built-in variables: <a href="https://www.thegeekstuff.com/2010/01/8-powerful-awk-built-in-variables-fs-ofs-rs-ors-nr-nf-filename-fnr/?ref=binfind.com/web">8 Powerful Awk Built-in Variables</a>
