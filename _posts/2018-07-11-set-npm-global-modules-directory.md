@@ -10,7 +10,10 @@ post_date: 2018-07-11 21:57:33
 ---
 <ol>
  	<li>
-<pre><code> npm config set prefix '~/.npm-global'
+<pre>using npm config:<code>npm config set prefix '~/.npm-global'</code></pre>
+</li>
+ 	<li>
+<pre>using env vars: <code>NPM_CONFIG_PREFIX=~/.npm-global
 </code></pre>
 </li>
 </ol>
