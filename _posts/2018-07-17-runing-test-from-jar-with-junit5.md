@@ -8,7 +8,7 @@ permalink: https://blog.lacambra.de/?p=221
 published: true
 post_date: 2018-07-17 15:18:57
 ---
-<div class="161206">java -jar <strong>junit-platform-console-standalone-1.3.0-M1.jar</strong> -n .*IT -scan-class-path -cp target\test-classes\ -cp target\app-jar-with-dependencies.jar</div>
+<div class="161206">java -jar <strong>junit-platform-console-standalone-1.3.0-M1.jar</strong> -n .*IT -scan-class-path -cp target\test-classes\(test.jar) -cp target\app-jar-with-dependencies.jar</div>
 <div></div>
 <div>where:</div>
 <ul>
