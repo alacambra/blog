@@ -16,3 +16,20 @@ post_date: 2018-07-17 15:18:57
  	<li><strong>-scan-class-path</strong> look for tests on classpath</li>
  	<li><strong>-cp</strong>: the classpath</li>
 </ul>
+<strong>Bonus:</strong>
+
+to compile test classes:  mvn test-compile compile
+
+to create test jar:
+<pre>&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;
+    &lt;version&gt;3.1.0&lt;/version&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;test-jar&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;</pre>
