@@ -18,7 +18,7 @@ At this point al found beans has been registered and can be used. As an example 
 machine.doSignals();
 
 System.out.println("done!");</pre>
-They are several available conext, all implementing the interface:
+There are several available conext, all implementing the interface:
 <pre>org.springframework.context.ApplicationContext</pre>
 <pre>org.springframework.context:
 ConfigurableApplicationContext.java
