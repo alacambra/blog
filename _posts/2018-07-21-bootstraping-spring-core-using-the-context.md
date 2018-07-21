@@ -11,7 +11,7 @@ published: true
 post_date: 2018-07-21 11:50:03
 ---
 <pre>AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-context.scan("cat.lacambra.prototype.statesmachine");
+context.scan("tech.lacambra.prototype.statesmachine");
 context.refresh();</pre>
 At this point al found beans has been registered and can be used. As an example code would go further as follows, taking care that ExStateMachine.class  is annotated as @Component :
 <pre>ExStateMachine machine = context.getBeanFactory().getBean(ExStateMachine.class);
