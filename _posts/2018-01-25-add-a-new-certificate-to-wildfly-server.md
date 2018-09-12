@@ -12,6 +12,11 @@ post_date: 2018-01-25 12:58:28
 /core-service=management/security-realm={<em>NEW_REALM_NAME</em>}:add()
 
 - <strong>Set path to keystore</strong>:
+
+/core-service=management/security-realm=hipps/server-identity=ssl:add(keystore-path=ssl-keystore.jks, keystore-relative-to=jboss.server.config.dir,keystore-password=changeit, alias=myhostname.local, key-password=changeit)
+
+or
+
 /core-service=management/security-realm={<em>NEW_REALM_NAME</em>}/server-identity=ssl:write-attribute(name=keystore-relative-to,value=jboss.server.config.dir)
 
 - <strong>Set keytore</strong>:
