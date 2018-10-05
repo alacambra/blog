@@ -16,4 +16,4 @@ Find the head commit of the branch as it was before the rebase started:
 and to reset the current branch to it.
 <pre><code>git reset --hard HEAD@{<em>NUMBER</em>}
 </code></pre>
-You can check the history of the candidate old head by just doing a <code>git log HEAD@{5}</code> (<em>Windows:</em> <code>git log "HEAD@{5}"</code>).<code></code>
+(<em>Windows:</em> <code>git log "HEAD@{<em>NUMBER</em>}"</code>).<code></code>
