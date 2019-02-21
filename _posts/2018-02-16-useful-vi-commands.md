@@ -4,13 +4,14 @@ post_title: Useful vi commands
 author: Albert Lacambra
 post_excerpt: ""
 layout: post
-permalink: https://blog.lacambra.de/?p=173
+permalink: https://blog.lacambra.tech/?p=173
 published: true
 post_date: 2018-02-16 08:27:39
 ---
 <a href="https://www.cs.colostate.edu/helpdocs/vi.html">https://www.cs.colostate.edu/helpdocs/vi.html</a>
 <ul>
  	<li><strong>0 (zero), $</strong>: cursor to start of the line, cursor to end of the line</li>
+ 	<li><strong>:%!python -m json.tool</strong>: Format prettify json.</li>
  	<li><strong>w, b</strong>: beggining of next word, beginning of preceding word</li>
  	<li><strong>:<em>n</em> (where n is a number) or nG</strong>: move cursor to line <em>n</em></li>
  	<li><strong>:$ or G:</strong> Move cursor to last line</li>
