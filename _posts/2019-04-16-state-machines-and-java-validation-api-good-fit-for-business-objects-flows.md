@@ -10,7 +10,9 @@ permalink: https://blog.lacambra.tech/?p=300
 published: true
 post_date: 2019-04-16 22:12:44
 ---
-In the last times I have been involved in several projects following the same pattern. One or more Business Objects with a state will change their states after receive some external event. When the objects are into a state, different validation rule applies.
+In the last times I have been involved in several projects following the same pattern. 
+One or more Business Objects with a state will change their states after receive some external event.
+ When the objects are into a state, different validation rules applies.
 This simple description, to often ends up with a mess of if, else, switch, spaghetti code and so on, that makes readability, maintainability and testability extreme hard. Moreover, if the number of states and validations are high enough the software becomes a side-effects nightmare.
 
 So, in this article I will try to explain a simple approach that will help to organize state specific code in a more efficient way increasing readability, maintainability, extensibility and testability and reduces side-effects without the need of any big implementation logic or external tools / libs / platforms.
