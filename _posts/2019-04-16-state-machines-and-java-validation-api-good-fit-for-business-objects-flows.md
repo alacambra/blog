@@ -1,7 +1,7 @@
 ---
 ID: 300
 post_title: >
-  State-machines and Java Validation API.
+  State-machines and Bean Validation API.
   Good fit for business objects flows.
 author: Albert Lacambra
 post_excerpt: ""
@@ -10,9 +10,14 @@ permalink: https://blog.lacambra.tech/?p=300
 published: true
 post_date: 2019-04-16 22:12:44
 ---
-<strong>Java Validation API.  What is it?</strong>
+In the last times I have been involved in several projects following the same pattern. One or more Business Objects with a state will change their states after receive some external event. When the objects are into a state, different validation rule applies.
+This simple description, to often ends up with a mess of if, else, switch, spaghetti code and so on, that makes readability, maintainability and testability extreme hard. Moreover, if the number of states and validations are high enough the software becomes a side-effects nightmare.
 
-The Java Validation API is a specification of Java EE (Jakarta EE) that makes it easy to validate objects and their fields.
+So, in this article I will try to explain a simple approach that will help to organize state specific code in a more efficient way increasing readability, maintainability, extensibility and testability and reduces side-effects without the need of any big implementation logic or external tools / libs / platforms.
+
+<strong>Bean Validation API.  What is it?</strong>
+
+The Bean Validation API is a specification of Java EE (<a href="https://jcp.org/en/jsr/detail?id=380">JSR 380</a>) that makes it easy to validate objects and their fields.
 
 It uses annotations to specify what must be validated and how. Once the validation happens, we will have available a list of errors that will give as all needed information about what has failed.
 
@@ -39,7 +44,7 @@ public class Item {
 }
 [/java]
 
-we are are validating that the id is not null, the attribute name can not be an empty String and that price must be bigger than one. Then, to test that it works, we just needs to run the following test:
+we are are validating that the id is not null, the attribute name can not be an empty String and that price must be bigger than one. Then, to test that it works, we just needs to run the following code:
 
 [java]
 
@@ -57,7 +62,7 @@ class ValidationTest {
   void validateSingleItem() {
 
     Item item = new Item(1, &quot;MacbookPro&quot;, BigDecimal.ONE);
-    Set&lt;ConstraintViolation&lt;Item&gt;&gt; violations = validator.validate(item);
+    Set&amp;amp;amp;amp;amp;lt;ConstraintViolation&amp;amp;amp;amp;amp;lt;Item&amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;gt; violations = validator.validate(item);
     Assertions.assertTrue(violations.isEmpty());
 
 
@@ -70,24 +75,24 @@ class ValidationTest {
 
 [/java]
 
+In this case, I am using the Hibernate implementation of Bean Validation.
+
 <strong>State machine. What is it and why should you use it? </strong>
 
 In our context, I will define a state machine as the representation of the sates where an object or flow can be and the transitions that allow to go from one state to another state. The referred object or flow can be in only and only one state at a time.
 
-This modeling in our software context is useful to give structure and design to the different rules and conditions that normally any business logic have.
-
-Usually, objects have states, and to have states often means to apply different validation rules per each different state.
-
 <strong>Match with Validation API:</strong>
 
-Is in this context where the validation API comes to place. Using a state machine, it is trivial to integrate this business validation into the state machine. The only thing you need to do, is to associate each state with one or more validation groups. Then, when the object enters an state, the state machine can apply the validation for the defined groups of the entering state.
+It is in this context where the validation API comes to place. Using a state machine, it is trivial to integrate this business validation into the state machine. The only thing you need to do, is to associate each state with one or more validation groups. Then, when the object enters an state, the state machine can apply the validation for the defined groups of the entering state.
 
 Using this design, we achieve two goals:
 <ul>
  	<li>We define and make it transparent which validation rules are applied each time in a semantic way, without any need to understand the validation logic itself.</li>
  	<li>Describing the states and transitions it makes really transparent how the object flow looks like</li>
 </ul>
-Let's see the most simple example, where we have some business object or pojos with a state. The state of the object can be represented using a StateMachine. In this example. the current state of the state machine is the object itself but in more complex scenarios, a state can represent the state and relations of several objects. To model the states of a given object, we are gone a code a TransitionBuilder class where we will describe transitions as a source node, an event triggering the transition and a traget node. The source and target nodes represents the start and end state of the transition.
+Let's see the most simple example, where we have some business object or pojos with a state. The state flow of our bussines object can be represented using a StateMachine. In this example, the current state of the state machine is the object itself but in more complex scenarios, a state can represent the state and relations of several objects.
+
+To model the object flow, we are gone a code a TransitionBuilder class. Using the builder, we will describe transitions from a source state to a target state when an event triggers .
 
 [java]
  public class TransitionBuilder {
@@ -127,7 +132,7 @@ Let's see the most simple example, where we have some business object or pojos w
   }
 [/java]
 
-Now we can model a simple object state machine. As an example, we are modeling a really simple order object. An order have a state INIT, (item)BOOKED, (item)DISPATCHED, ON_TRACK, DELIVERED.
+Now we can model our simple object flow.  As an example, we are modeling a really simple order object. An order have a state INIT, (item)BOOKED, (item)DISPATCHED, ON_TRACK, DELIVERED.
 Now, using the builder above, we just need to create our state model:
 
 [java]
@@ -173,6 +178,7 @@ public StateMachine create() {
 It is possible now, using the Java Validation API to assign one or more validation groups to each state, and with a little bit of simple logic, we will trigger per each transition the validation with the groups of the target state.
 
 The next code ilustrates the workflow:
+
 [java]
 @Test
 void testStateMachine() {
@@ -180,7 +186,7 @@ void testStateMachine() {
 StateMachine stateMachine = new OrderStateMachineFactory().create();
 Order order = new Order();
 
-Optional&lt;ConstraintViolationException&gt; r = stateMachine.trigger(Event.START_ORDER, order);
+Optional&amp;amp;amp;amp;amp;lt;ConstraintViolationException&amp;amp;amp;amp;amp;gt; r = stateMachine.trigger(Event.START_ORDER, order);
 
 assertFalse(r.isEmpty());
 System.out.println(&quot;1:&quot; + r.get().getMessage());
@@ -213,7 +219,7 @@ assertEquals(new DeliveredState().getName(), order.getState());
 }
 [/java]
 
-The state machine itself is a simple class implementing a method <em>trigger</em> that given an event and object with a state (current state of the StateMachine) just look for the target event and triggers it.
+The state machine itself is a simple class implementing a method <em>trigger</em> that, given an event and an object with a state (current state of the StateMachine) just look for the target event and triggers it.
 The state object is just triggering the validation and updating the state of the object:
 
 [java]
@@ -241,11 +247,13 @@ public class StateMachine {
     r.ifPresent(ex -&gt; stateObject.setState(state));
 
     return r;
-  }
 }
 [/java]
+
+
 [java]
-public Optional&lt;ConstraintViolationException&gt; onState(StateObject stateObject) {
+@Override
+  public Optional&lt;ConstraintViolationException&gt; onState(StateObject stateObject) {
     enterState((Order) stateObject);
     Set&lt;ConstraintViolation&lt;StateObject&gt;&gt; violations = validator.validate(stateObject, getValidationGroups());
     if (!violations.isEmpty()) {
@@ -255,5 +263,5 @@ public Optional&lt;ConstraintViolationException&gt; onState(StateObject stateObj
     return Optional.empty();
 }
 [/java]
-With the two commented advantages, it is also easy and almost error free to add new states and transitions.
-You can find the code of this article on <a href="https://github.com/alacambra/blogs-posts-code/tree/master/simple-statemachine" rel="noopener" target="_blank">github</a>
+
+You can find the code of this article on <a href="https://github.com/alacambra/blogs-posts-code/tree/master/simple-statemachine" target="_blank" rel="noopener">github</a>
