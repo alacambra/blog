@@ -1,8 +1,8 @@
 ---
 ID: 300
 post_title: >
-  State-machines and Bean Validation API.
-  Good fit for business objects flows.
+  State-machines and Bean Validation. Good
+  fit for business objects flows.
 author: Albert Lacambra
 post_excerpt: ""
 layout: post
@@ -24,9 +24,11 @@ So, in this article I will try to explain a simple approach that will help to or
 
 <strong>Bean Validation API.  What is it?</strong>
 
-The Bean Validation API is a specification of Java EE (<a href="https://jcp.org/en/jsr/detail?id=380">JSR 380</a>) that makes it easy to validate objects and their fields.
+The Bean Validation API is a specification of Java EE (<a href="https://jcp.org/en/jsr/detail?id=380">JSR 380</a>) that makes easy to validate objects and their fields.
 
 It uses annotations to specify what must be validated and how. Once the validation happens, we will have available a list of errors that will give as all needed information about what has failed.
+
+Interesting is that we can use <em>groups</em>. So we do not need to validate all all fields at the same time, but we have a way to specify which fields must be validated.
 
 For example, given the class Item:
 
@@ -86,7 +88,7 @@ In this case, I am using the Hibernate implementation of Bean Validation.
 
 <strong>State machine. What is it and why should you use it? </strong>
 
-In our context, I will define a state machine as the representation of the sates where an object or flow can be and the transitions that allow to go from one state to another state. The referred object or flow can be in only and only one state at a time.
+In our context, I will define a state machine as the representation of the sates where an object or flow can be and the transitions that allow to go from one state to another state. The referenced object or flow can be in only and only one state at a time.
 
 <strong>Match with Validation API:</strong>
 
