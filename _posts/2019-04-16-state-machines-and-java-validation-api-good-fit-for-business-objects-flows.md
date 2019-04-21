@@ -243,10 +243,10 @@ public class StateMachine {
 
     Optional&amp;lt;ConstraintViolationException&amp;gt; r = transitions
         .stream()
-        .filter(t -&amp;gt; t.getEvent().equals(event))
-        .filter(t -&amp;gt; t.getSource().getName().equals(stateObject.getState()))
+        .filter(t -&gt; t.getEvent().equals(event))
+        .filter(t -&gt; t.getSource().getName().equals(stateObject.getState()))
         .findAny()
-        .orElseThrow(() -&amp;gt; new InvalidTransitionException(event, stateObject.getState()))
+        .orElseThrow(() -&gt; new InvalidTransitionException(event, stateObject.getState()))
         .getTarget().onState(stateObject);
 
     //Simulates a roll-back in case of error
