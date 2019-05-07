@@ -1,8 +1,6 @@
 ---
 ID: 295
-post_title: >
-  Extrapolate run command of docker
-  container
+post_title: 'Extrapolate &#8220;run&#8221; command of docker container'
 author: Albert Lacambra
 post_excerpt: ""
 layout: post
