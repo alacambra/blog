@@ -2,7 +2,7 @@
 ID: 338
 post_title: >
   The JsonPointer. Simplifying the way to
-  work witj JSON
+  work with JSON
 author: Albert Lacambra
 post_excerpt: ""
 layout: post
