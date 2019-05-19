@@ -147,3 +147,4 @@ Json used for the examples:</li>
 
 In another article I will speak about the JsonPatch, <a href="https://tools.ietf.org/html/rfc6902">rfc</a> defined as
 <pre>JSON Patch defines a JSON document structure for expressing a sequence of operations to apply to a JavaScript Object Notation (JSON) document; it is suitable for use with the HTTP PATCH method. The "application/json-patch+json" media type is used to identify such patch documents.</pre>
+Sourcecode on <a href="https://github.com/alacambra/blogs-posts-code/blob/master/json-patch-and-pointer/src/test/java/json_patch_and_pointer/PatchAndPointer.java">github</a>
