@@ -8,9 +8,11 @@ permalink: https://blog.lacambra.tech/?p=338
 published: true
 post_date: 2019-05-19 15:25:15
 ---
-Since Java API for JSON Processing version 1.1, it is possible to use JosnPointer. JsonPointer is a specification of <a href="https://tools.ietf.org/html/rfc6901">rfc6901</a> as we can read on it <em>JSON Pointer defines a string syntax for identifying a specific value
+Since Java API for JSON Processing version 1.1, it is possible to use JosnPointer.
+
+JsonPointer is a specification of <a href="https://tools.ietf.org/html/rfc6901">rfc6901</a> and as we can read on it, <em>JSON Pointer defines a string syntax for identifying a specific value
 within a JavaScript Object Notation (JSON) document.</em>
-In other words, it is possible now to evaluate and change values from our JsonObjects using a pointer string instead to go through the whole chain of calls and recreating and object builder at the end.
+In other words, it is possible now to evaluate and change values from our JsonObjects using a pointer string instead to go through the whole chain of calls and recreating an object builder at the end.
 
 So instead of that:
 
@@ -25,9 +27,11 @@ we can do that:
 [/java]
 
 We can easily see, that the use of pointers make easier to know which element we are fetching and more intuitive to write.
-However, since the pointer is returning a JsonValue, we need to use a cast to be able to fetch the final value. Why JsonPointer is not providing methods to directly get java types like JsonObject is doing, is something I do not really know.
+However, since the pointer is returning a JsonValue, we need to use a cast to be able to fetch the final value.
 
-So, what can we do with the JSON pointer?
+Why JsonPointer is not providing methods to directly get java types like JsonObject is doing, is something I do not really know.
+
+<strong>So, what can we do with the JSON pointer?</strong>
 We can not only get values from a JsonStructure using pointer notation but also modify the object without the need to reconvert it into its builder equivalent. So specifically we can:
 <ul>
  	<li>add a value to a JsonStructure</li>
@@ -65,15 +69,17 @@ Let's see some examples. For the examples, I will be using the following json ob
 
 
 	
-<ul>
 
-<li><strong>Get a simple value from an object.</strong>
+&lt;ul&gt;
+
+
+&lt;li&gt;&lt;strong&gt;Get a simple value from an object.&lt;/strong&gt;
 
 [java]
 JsonNumber id = ((JsonNumber) Json.createPointer(&quot;/id&quot;).getValue(example));
 [/java]
-</li>
 
+<ul>
  	<li><strong>get an object from an object.</strong>
 
 [java]
@@ -143,7 +149,3 @@ JsonNumber id = ((JsonNumber) Json.createPointer(&quot;/id&quot;).getValue(examp
 
 </li>
 </ul>
-http://jsonpatch.com/
-JsonPatch
-JsonPointer
-Java API for JSON Processing
