@@ -1,6 +1,8 @@
 ---
 ID: 338
-post_title: JsonPath and JsonPointer
+post_title: >
+  The JsonPointer. New guy into JSR374
+  implementing RFC6901
 author: Albert Lacambra
 post_excerpt: ""
 layout: post
@@ -8,7 +10,7 @@ permalink: https://blog.lacambra.tech/?p=338
 published: true
 post_date: 2019-05-19 15:25:15
 ---
-Since Java API for JSON Processing version 1.1, it is possible to use JosnPointer.
+Since Java API for JSON Processing  (JSR 374) version 1.1, it is possible to use JosnPointer.
 
 JsonPointer is a specification of <a href="https://tools.ietf.org/html/rfc6901">rfc6901</a> and as we can read on it, <em>JSON Pointer defines a string syntax for identifying a specific value
 within a JavaScript Object Notation (JSON) document.</em>
@@ -39,47 +41,15 @@ We can not only get values from a JsonStructure using pointer notation but also 
  	<li>remove a value from a jsonStructure</li>
  	<li>replace a value into a JsonStructre</li>
 </ul>
-Let's see some examples. For the examples, I will be using the following json object as a basis:
-
-[javascript]
-
-{
-&quot;id&quot;: 1,
-&quot;user&quot;:
-{
-&quot;name&quot;: &quot;some-name&quot;,
-&quot;lastname&quot;: &quot;some-lastname&quot;
-},
-&quot;user_mentions&quot;: [
-{
-&quot;name&quot;: &quot;Twitter API&quot;,
-&quot;indices&quot;: [
-4,
-15
-],
-&quot;screen_name&quot;: &quot;twitterapi&quot;,
-&quot;id&quot;: 6253282,
-&quot;id_str&quot;: &quot;6253282&quot;
-}
-]
-}
-
-[/javascript]
-
-
-
-	
-
-&lt;ul&gt;
-
-
-&lt;li&gt;&lt;strong&gt;Get a simple value from an object.&lt;/strong&gt;
+Let's see some examples. For the examples, I will use the json object shown at the end of thas a basis:
+<ul>
+ 	<li><strong>Get a simple value from an object.</strong>
 
 [java]
 JsonNumber id = ((JsonNumber) Json.createPointer(&quot;/id&quot;).getValue(example));
 [/java]
 
-<ul>
+</li>
  	<li><strong>get an object from an object.</strong>
 
 [java]
@@ -147,5 +117,33 @@ JsonNumber id = ((JsonNumber) Json.createPointer(&quot;/id&quot;).getValue(examp
     Assertions.assertFalse(example.containsKey(&quot;id&quot;));
 [/java]
 
-</li>
+Json used for the examples:</li>
 </ul>
+
+[javascript]
+
+{
+&quot;id&quot;: 1,
+&quot;user&quot;:
+{
+&quot;name&quot;: &quot;some-name&quot;,
+&quot;lastname&quot;: &quot;some-lastname&quot;
+},
+&quot;user_mentions&quot;: [
+{
+&quot;name&quot;: &quot;Twitter API&quot;,
+&quot;indices&quot;: [
+4,
+15
+],
+&quot;screen_name&quot;: &quot;twitterapi&quot;,
+&quot;id&quot;: 6253282,
+&quot;id_str&quot;: &quot;6253282&quot;
+}
+]
+}
+
+[/javascript]
+
+In another article I will speak about the JsonPatch, <a href="https://tools.ietf.org/html/rfc6902">rfc</a> defined as
+<pre>JSON Patch defines a JSON document structure for expressing a sequence of operations to apply to a JavaScript Object Notation (JSON) document; it is suitable for use with the HTTP PATCH method. The "application/json-patch+json" media type is used to identify such patch documents.</pre>
