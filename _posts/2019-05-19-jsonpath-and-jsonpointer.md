@@ -115,7 +115,7 @@ JsonNumber id = ((JsonNumber) Json.createPointer(&quot;/id&quot;).getValue(examp
 [/java]
 
 </li>
- 	<li><strong>Add an element to a JsonArray. The </strong>pointer,<strong> must point to the last_element + 1 index. Empty </strong>eleemnts<strong> would </strong>produces<strong> an error.</strong>
+ 	<li><strong>Add an element to a JsonArray. The pointer must point to the last_element + 1 index. Empty elements would produce an error.</strong>
 
 [java]
     extendedExample = Json.createPointer(&quot;/user_mentions/0/indices/2&quot;).add(extendedExample, Json.createValue(30));
