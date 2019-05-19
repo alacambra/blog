@@ -64,15 +64,16 @@ Let's see some examples. For the examples, I will be using the following json ob
 
 
 
+	
 <ul>
- 	
 
-<li><strong>Get a simple value from an object.</strong><span style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" data-mce-type="bookmark" class="mce_SELRES_start"></span>
+<li><strong>Get a simple value from an object.</strong>
 
-JsonNumber id = ((JsonNumber) Json.createPointer("/id").getValue(example));
+[java]
+JsonNumber id = ((JsonNumber) Json.createPointer(&quot;/id&quot;).getValue(example));
 [/java]
+</li>
 
-<ul>
  	<li><strong>get an object from an object.</strong>
 
 [java]
