@@ -1,8 +1,8 @@
 ---
 ID: 338
 post_title: >
-  The JsonPointer. New guy into JSR374
-  implementing RFC6901
+  The JsonPointer. Simplifying the way to
+  work witj JSON
 author: Albert Lacambra
 post_excerpt: ""
 layout: post
