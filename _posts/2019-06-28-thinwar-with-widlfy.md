@@ -19,11 +19,11 @@ To add new dependencies into the Widlfly application server, we need to add them
 
 So, to create a new module we must follow the next steps.
 <ul>
-  <li>Create the module directory:</li>
+ 	<li>Create the module directory:</li>
 </ul>
 mkdir -p $JBOSS_HOME/modules/my/module/name/main
 <ul>
-  <li>Create a module.xml file with the following contents:</li>
+ 	<li>Create a module.xml file with including our depenedencies. Required jars can be directly downloaded form <a href="http://Maven central repos">https://mvnrepository.com</a></li>
 </ul>
 
 [xml]
@@ -37,7 +37,7 @@ mkdir -p $JBOSS_HOME/modules/my/module/name/main
 [/xml]
 
 <ul>
-  <li>Declare the module as a global module into settings.xml so that it can be used by any deployed application. Under the <strong>&lt;subsystem&gt;</strong> section add:</li>
+ 	<li>Declare the module as a global module into settings.xml so that it can be used by any deployed application. Under the <strong>&lt;subsystem&gt;</strong> section add:</li>
 </ul>
 
 [xml]
