@@ -4,13 +4,13 @@ post_title: Replace to upper/low case with regex
 author: Albert Lacambra
 post_excerpt: ""
 layout: post
-permalink: https://blog.lacambra.de/?p=247
+permalink: https://blog.lacambra.tech/?p=247
 published: true
 post_date: 2018-08-31 19:19:42
 ---
 \U$1 will set all chars contained into group $1 to upper case.
 
-\U$1 will set the first char of the group $1 to upper case.
+\u$1 will set the first char of the group $1 to upper case.
 
 \L$1 will set all chars contained into group $1 to upper case.
 
